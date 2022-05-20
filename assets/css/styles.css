@@ -1,19 +1,114 @@
 * {
-    box-sizing: border-box;
+    
+}
+:root {
+    --answercolor {
+
+    }
+}
+.body {
+    background-image: url("../images/backgorund.jpg");
+    background-repeat: no-repeat;
+    background-
+    background-color: #cbcc9d;
+    position: relative;
+    left: 25%;
+    border: brown 10px outset;
+    border-radius: 15px;
+    width: 1000px;
+    height: 700px
 }
 
-header section #name-box {
-    height: 200px;
-    width: 200px;
-    background-color: blueviolet;
-    float:left
+#name-box {
+    border:  #1b8191 3px outset;
+    width: 85%;
+    background-color: #24A19C;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
+    float: left;
+    text-align: center;
 }
-
- header section #timer {
-    height: 200px;
-    width: 200px;
-    background-color: blueviolet;
+.highscore-box {
+    border:  #1b8191 3px outset;
+    width: 85%;
+    background-color: #24A19C;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
     float: right;
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+ #timer {
+    border:  #1b8191 3px outset;
+    width: 100%;
+    background-color: #24a19d8c;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
+    float: right;
+    text-align: center;
+    position: relative;
+    left: 30px;
+}
+
+.header {
+    height: 20%;
+    background-color: #006E7F;
+    border-bottom: #1b8191 3px outset;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px #006E7F;
+    position: relative;
+    top:-3%
+}
+
+.h1 {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top: 40px;
+}
+.questioncontainer {
+    border:  #1b8191 3px outset;
+    width: 200px;
+    background-color: #c37303df;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
+    float: left;
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+.question {
+    border:  #1b8191 3px outset;
+    
+    background-color: #0c558aff;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
+}
+
+
+.answers {
+   
+    width: 45%;
+    border:  #1b8191 3px outset;
+    background-color: #0471c0;
+    border-radius: 10px;
+    box-shadow:5px 5px 5px#006E7F;
+    margin: 10px;
+    height: 100px;
+}
+.answercontainer {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.namebox {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .column {
@@ -22,7 +117,7 @@ header section #name-box {
 }
 
 .left {
-    width: 25%;
+    width: 15%;
 }
 
 .middle {
@@ -30,5 +125,5 @@ header section #name-box {
 }
 
 .right {
-    width: 10%
+    width: 10%;
 }
