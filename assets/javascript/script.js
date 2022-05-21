@@ -13,7 +13,7 @@
  //correct answer counter
  let score = 0;
  let finalScore = 0;
- let isWin = false;
+ let isFinish = false;
  let timer;
  let timeLeft;
 
@@ -33,11 +33,31 @@ startGame = () => {
     timerEl.setAttribute("style", "display: block;");
     questionContainer.setAttribute("style", "display: block;");
     // starts timer counting
-    // startTimer();
-    // startQuestions();
+    startTimer();
+    startQuestions();
 };
 
-
+startTimer = () => {
+    timer = setInterval(function() {
+        timeLeft--
+        timerEl.textContent = "Remaining Time:"+ timeLeft;
+        if (timeLeft >= 0) {
+            //tests if quiz is complete
+            if (isFinish && timeLeft > 0) {
+                //stops timer and begins post quiz
+                clearInterval(timer);
+                // postQuiz();
+            }
+        }
+        // tests if timer has run out
+        if (timeLeft === 0) {
+            //stops timer and game over
+            clearInterval(timer);
+            // postQuiz();
+            // gameOver();
+        }
+    }, 1000);
+};
 
 
 
