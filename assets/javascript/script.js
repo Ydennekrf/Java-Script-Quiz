@@ -22,7 +22,7 @@
  //sets what question you are on through the questions array
  let questionIndex = 0;
  let userName = "";
- 
+ // stores the conent of the questions answers and which button will be the correct answer
  let questions = [    
     {question: "When was JavaScript first introduced?",
     answers: ["1985", "1995", "2003", "1976"],
@@ -43,13 +43,13 @@
     answers: ["array.length()", "length.array()", "array = howlong()", "array.long()"],
     answerIndex: "1"}
   ];
-
+//stores the high scores to be accessed
  let highscoreArr = [];
- 
+ //pulls from local storage the highscores and renders them on load up
  init = () => {
     getScore();
 };
-
+//sets the score object into the highscore array
  scoreBoard = () => {
     let finalScore = (score + timeLeft);
     let scoreObj = {name: userName, score: finalScore};
@@ -63,6 +63,7 @@
  sortScores = (a, b) => {
      return a.score - b.score;
  };
+ //renders the high scores in the score box
  renderScores = () => {
      for (let i = 0; i < 4; i++) {
     document.getElementById(i).textContent = `${highscoreArr[i].name} : ${highscoreArr[i].score}`;    
@@ -78,6 +79,7 @@
 pushScore = () => {
     localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
 }
+//pulls the scores from local storage and runs function renderScores
 getScore = () => {
     let savedScore = JSON.parse(localStorage.getItem("highscoreArr"));
     if (savedScore === null){
@@ -87,11 +89,11 @@ getScore = () => {
     renderScores();
 };
 }
+//starts the game by clicking the start button
 startGame = (event) => {
-    timeLeft = 10;
+    timeLeft = 30;
     //disables start button to be hit during game play
     startBtn.disabled = true;
-    // startBtn.setAttribute("style","background-color: #d538749f")
     //switches the question area and timer box from hidden to visable
     timerEl.setAttribute("style", "display: block;");
     questionContainer.setAttribute("style", "display: block;");
@@ -100,6 +102,7 @@ startGame = (event) => {
     startTimer();
     startQuestions();
 };
+// renders the questions and answers in the question container
 startQuestions = () => {
     if (questionIndex<questions.length) {
         question.textContent = questions[questionIndex].question;
@@ -111,6 +114,7 @@ startQuestions = () => {
         isFinish = true;
     }
 }
+//starts the timer in the timer box
 startTimer = () => {
     timer = setInterval(function() {
         timeLeft--
@@ -178,14 +182,6 @@ checkAnswer = (answerIndex) => {
 }
 //resets the game without using the refresh in the browser
 resetGame = () => {
-    let reset = confirm("Do you want to reset the highscoreboard?");
-    if (reset === true) {
-        highscoreArr = [];
-        localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
-    }
-    location.reload();
-}
-resetScore = () => {
     let reset = confirm("Do you want to reset the highscoreboard?");
     if (reset === true) {
         highscoreArr = [];
