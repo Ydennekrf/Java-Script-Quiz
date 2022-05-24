@@ -1,8 +1,4 @@
- let one = document.querySelector("#one");
- let two = document.querySelector("#two");
- let three = document.querySelector("#three");
- let four = document.querySelector("#four");
- let five = document.querySelector("#five");
+ 
  let questionEl = document.querySelector("#question");
  let questionContainer = document.querySelector(".questioncontainer");
  let answerContainer = document.querySelector(".answercontainer");
