@@ -26,16 +26,26 @@
  let check = false;
  
  let questions = [    
-    {question: "this is question1",
-    answers: ["answer1", "answer2", "answer3", "answer4"],
+    {question: "When was JavaScript first introduced?",
+    answers: ["1985", "1995", "2003", "1976"],
     answerIndex: "2"},
-    {question: "this is question2",
-    answers: ["ANSWER1", "ANSWER2", "ANSWER3", "ANSWER4"],
+    {question: "What method is used to organize an array?",
+    answers: [".forEach();", ".push();", ".sort();", ".pop();"],
     answerIndex: "3"},
-    {question: "this is question3",
-    answers: ["ANSWER1", "ANSWER2", "ANSWER3", "ANSWER4"],
-    answerIndex: "1"} 
-];
+    {question: "What tag is used to link a javascript file in HTML",
+    answers: ["<link>", "<div>", "<head>", "<script>"],
+    answerIndex: "4"},
+    {question: "Which of the following methods returns a capitalized string?",
+    answers: ["toUpperCase()", "stringify()", "toString()", "ALLCAPS()"],
+    answerIndex: "1"},
+    {question: "Which of the following is the proper syntax for an object array",
+    answers: ["let object = ();", "object: {}", "let object = [{}]", "{object = []}"],
+    answerIndex: "3"},
+    {question: "How do you check the length of an array?",
+    answers: ["array.length()", "length.array()", "array = howlong()", "array.long()"],
+    answerIndex: "1"}
+  ];
+
  let highscoreArr = [];
  
 
