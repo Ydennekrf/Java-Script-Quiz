@@ -67,12 +67,7 @@
  };
  renderScores = () => {
      for (let i = 0; i < 4; i++) {
-    document.getElementById(i).textContent = `${highscoreArr[i].name} : ${highscoreArr[i].score}`;
-    // two.textContent = highscoreArr[1].name + " : " + highscoreArr[1].score;
-    // three.textContent = highscoreArr[2].name + " : " + highscoreArr[2].score;
-    // four.textContent = highscoreArr[3].name + " : " + highscoreArr[3].score;
-    // five.textContent = highscoreArr[4].name + " : " + highscoreArr[4].score; 
-     
+    document.getElementById(i).textContent = `${highscoreArr[i].name} : ${highscoreArr[i].score}`;    
  }
 };
  //trims the high score board down to 5 entries
@@ -185,20 +180,18 @@ checkAnswer = (answerIndex) => {
 }
 //resets the game without using the refresh in the browser
 resetGame = () => {
-    questionIndex = 0;
-    score = 0;
-    quizOver.setAttribute("style", "display:none;");
-    startBtn.disabled = false;
-    timeLeft = 0;
-    isFinish = false;
-    resetScore();
+    let reset = confirm("Do you want to reset the highscoreboard?");
+    if (reset === true) {
+        highscoreArr = [];
+        localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
+    }
+    location.reload();
 }
 resetScore = () => {
     let reset = confirm("Do you want to reset the highscoreboard?");
     if (reset === true) {
         highscoreArr = [];
         localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
-        renderScores();
     }
     location.reload();
 }
@@ -215,5 +208,4 @@ resetScore = () => {
           checkAnswer(answerIndex);
       }
   })
-
   init();
