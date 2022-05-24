@@ -14,12 +14,14 @@
 
  //correct answer counter
  let score = 0;
+ // checks for when the quiz is complete
  let isFinish = false;
+ //allows for timer and timeLeft to be accessed gloabally
  let timer;
  let timeLeft= 0;
+ //sets what question you are on through the questions array
  let questionIndex = 0;
  let userName = "";
- let check = false;
  
  let questions = [    
     {question: "When was JavaScript first introduced?",
