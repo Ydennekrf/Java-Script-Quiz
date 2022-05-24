@@ -48,7 +48,6 @@
 
  let highscoreArr = [];
  
-
  init = () => {
     getScore();
 };
@@ -67,21 +66,21 @@
      return a.score - b.score;
  };
  renderScores = () => {
-    one.textContent = highscoreArr[0].name + " : " + highscoreArr[0].score;
-    two.textContent = highscoreArr[1].name + " : " + highscoreArr[1].score;
-    three.textContent = highscoreArr[2].name + " : " + highscoreArr[2].score;
-    four.textContent = highscoreArr[3].name + " : " + highscoreArr[3].score;
-    five.textContent = highscoreArr[4].name + " : " + highscoreArr[4].score; 
+     for (let i = 0; i < 4; i++) {
+    document.getElementById(i).textContent = `${highscoreArr[i].name} : ${highscoreArr[i].score}`;
+    // two.textContent = highscoreArr[1].name + " : " + highscoreArr[1].score;
+    // three.textContent = highscoreArr[2].name + " : " + highscoreArr[2].score;
+    // four.textContent = highscoreArr[3].name + " : " + highscoreArr[3].score;
+    // five.textContent = highscoreArr[4].name + " : " + highscoreArr[4].score; 
      
- };
+ }
+};
  //trims the high score board down to 5 entries
  trimScore = () => {
      if(highscoreArr.length === 6) {
          highscoreArr.pop();
      }
  };
-
-
 //saves the high score array in local storage
 pushScore = () => {
     localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
@@ -95,8 +94,6 @@ getScore = () => {
     renderScores();
 };
 }
- 
-
 startGame = (event) => {
     timeLeft = 10;
     //disables start button to be hit during game play
@@ -110,7 +107,6 @@ startGame = (event) => {
     startTimer();
     startQuestions();
 };
-
 startQuestions = () => {
     if (questionIndex<questions.length) {
         question.textContent = questions[questionIndex].question;
@@ -122,7 +118,6 @@ startQuestions = () => {
         isFinish = true;
     }
 }
-
 startTimer = () => {
     timer = setInterval(function() {
         timeLeft--
@@ -153,7 +148,6 @@ startTimer = () => {
         }
     }, 1000);
 };
-
 // used if user cannot complete questions in alloted time
 gameOver = () => {
     timerEl.setAttribute("style", "display: none;");
@@ -169,28 +163,26 @@ gameOver = () => {
 //adjusts time according to the answer being correct or not
 //adjusts the score for a correct answer and runs the correct answer function
 checkAnswer = (answerIndex) => {
+    let animateHelp = `answer${answerIndex}`;
+    let selectedAnswer = document.getElementById(animateHelp)
     if (questions[questionIndex].answerIndex === answerIndex){
         questionIndex++;
         timeLeft = timeLeft + 10;
         score++;
-        startQuestions();
+        selectedAnswer.classList.toggle('correct')
         //runs the correct answer animation.
-        correctAnswer();
+        // correctAnswer();
     } else {
         questionIndex++;
         timeLeft = timeLeft - 10;
-        startQuestions();
+        selectedAnswer.classList.toggle('wrong')
     }
+    setTimeout(()=> {
+        selectedAnswer.classList.remove('correct');
+        selectedAnswer.classList.remove('wrong');
+        startQuestions();
+    }, "300")
 }
-
-//changes the color of the question container in flashes based on a correct or wrong guess
-correctAnswer = () => {
-    check = true
-    startQuestions();
-    return;
-}
-
-
 //resets the game without using the refresh in the browser
 resetGame = () => {
     questionIndex = 0;
@@ -199,25 +191,17 @@ resetGame = () => {
     startBtn.disabled = false;
     timeLeft = 0;
     isFinish = false;
-    answer1.setAttribute("style", "animation-name: none; animation-duration: 0s;");
-    answer2.setAttribute("style", "animation-name: none; animation-duration: 0s;");
-    answer3.setAttribute("style", "animation-name: none; animation-duration: 0s;");
-    answer4.setAttribute("style", "animation-name: none; animation-duration: 0s;");
     resetScore();
 }
 resetScore = () => {
-
     let reset = confirm("Do you want to reset the highscoreboard?");
     if (reset === true) {
         highscoreArr = [];
         localStorage.setItem("highscoreArr", JSON.stringify(highscoreArr));
         renderScores();
     }
+    location.reload();
 }
-
-
-//variable is at bottom so that everything required is declared first.
-
   //attach event listeners to start button, and answer buttons
   startBtn.addEventListener("click", startGame);
   //resets the game without using the refresh page in browser
@@ -229,20 +213,7 @@ resetScore = () => {
       if (element.matches(".answers")){
           let answerIndex = element.dataset.index
           checkAnswer(answerIndex);
-          if(check === true) {
-            element.setAttribute("style"," animation-name: correct; animation-duration: 1s;")
-            check = false;
-          } else {
-            element.setAttribute("style"," animation-name: wrong; animation-duration: 1s;")
-          }
       }
   })
 
   init();
-
-
-
-
-
-    
-    
