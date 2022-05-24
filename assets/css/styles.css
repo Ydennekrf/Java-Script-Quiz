@@ -1,7 +1,3 @@
-* {
-    
-}
-
 .body {
     font-family:"Nova Flat", monospace;
     background-image: url("../images/backgorund.jpg");
@@ -153,7 +149,7 @@
     bottom: 10px;
     left: 5px;
 }
-
+/* these 4 blocks deal with the animation with correct and wrong answers */
 .correct {
     animation: correct 200ms
 }
@@ -175,7 +171,3 @@
     100% {background-color: #ff000098;}
     
    }
-
-@media screen {
-    
-}
