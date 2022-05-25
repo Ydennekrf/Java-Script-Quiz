@@ -27,7 +27,7 @@ quiz after start button
 
 ## Installation
 
-  The website can be viewed through GitHub pages [here](https://ydennekrf.github.io/Masked-Ruby/)
+  The website can be viewed through GitHub pages [here](https://ydennekrf.github.io/Medal-Sail/)
 
 
 
