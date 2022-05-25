@@ -203,3 +203,5 @@ resetGame = () => {
       }
   })
   init();
+
+  https://screenrec.com/share/sY1q5Kg7Dh
