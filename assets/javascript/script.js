@@ -168,19 +168,20 @@ checkAnswer = (answerIndex) => {
         score++;
         selectedAnswer.classList.toggle('correct')
         //runs the correct answer animation.
-        // correctAnswer();
     } else {
+        // runs incorrect answer animation.
         questionIndex++;
         timeLeft = timeLeft - 10;
         selectedAnswer.classList.toggle('wrong')
     }
+    //sets a pause for the animation to complete before next questions
     setTimeout(()=> {
         selectedAnswer.classList.remove('correct');
         selectedAnswer.classList.remove('wrong');
         startQuestions();
     }, "300")
 }
-//resets the game without using the refresh in the browser
+//resets the game
 resetGame = () => {
     let reset = confirm("Do you want to reset the highscoreboard?");
     if (reset === true) {
