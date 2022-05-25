@@ -155,7 +155,7 @@
 }
 
 .wrong {
-    animation: correct
+    animation: wrong
     200ms 
 }
 
