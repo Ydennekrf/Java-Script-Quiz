@@ -15,6 +15,13 @@ if your score is high enough it will get placed on the highscore board in the ap
 
 ## Mock Up and screenshots
 
+Below you will see the wireFrame and a mock up.
+wireframe
+![wireframe](./assets/images/wireframe.png)
+quiz on load up
+![quiz1](./assets/images/quiz1.png)
+quiz after start button
+![quiz2](./assets/images/quiz2.png)
 
   
 
